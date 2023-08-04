@@ -22,7 +22,7 @@ describe('slack:sendMessage', () => {
   it('should throw error if webhookUrl is not defined', async () => {
     const action = createSendSlackMessageViaWebhookAction({
       config: {
-        getOptionalString: (key: string): string | undefined => undefined,
+        getOptionalString: (_key: string): string | undefined => undefined,
       } as Config,
     });
 
@@ -48,7 +48,7 @@ describe('slack:sendMessage', () => {
   it('should send to config webhook URL if provided', async () => {
     const action = createSendSlackMessageViaWebhookAction({
       config: {
-        getOptionalString: (key: string): string | undefined =>
+        getOptionalString: (_key: string): string | undefined =>
           'https://example.com',
       } as Config,
     });
@@ -74,7 +74,7 @@ describe('slack:sendMessage', () => {
   it('should prefer webhook url from config if provided in input', async () => {
     const action = createSendSlackMessageViaWebhookAction({
       config: {
-        getOptionalString: (key: string): string | undefined =>
+        getOptionalString: (_key: string): string | undefined =>
           'https://example.com',
       } as Config,
     });
@@ -101,7 +101,7 @@ describe('slack:sendMessage', () => {
   it('should use the webhook url on input if config value is not present', async () => {
     const action = createSendSlackMessageViaWebhookAction({
       config: {
-        getOptionalString: (key: string): string | undefined => undefined,
+        getOptionalString: (_key: string): string | undefined => undefined,
       } as Config,
     });
 
@@ -127,7 +127,7 @@ describe('slack:sendMessage', () => {
   it('should send message in proper format to webhook URL', async () => {
     const action = createSendSlackMessageViaWebhookAction({
       config: {
-        getOptionalString: (key: string): string | undefined =>
+        getOptionalString: (_key: string): string | undefined =>
           'https://example.com',
       } as Config,
     });
@@ -154,7 +154,7 @@ describe('slack:sendMessage', () => {
   it('should throw an error if result.status is not 200', async () => {
     const action = createSendSlackMessageViaWebhookAction({
       config: {
-        getOptionalString: (key: string): string | undefined =>
+        getOptionalString: (_key: string): string | undefined =>
           'https://example.com',
       } as Config,
     });
