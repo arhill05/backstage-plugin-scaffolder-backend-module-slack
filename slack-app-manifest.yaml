@@ -1,0 +1,18 @@
+display_information:
+  name: Backstage Notifications
+features:
+  bot_user:
+    display_name: Backstage Notifications
+    always_online: false
+oauth_config:
+  scopes:
+    bot:
+      - channels:join
+      - chat:write
+      - chat:write.public
+      - im:write
+      - channels:read
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
