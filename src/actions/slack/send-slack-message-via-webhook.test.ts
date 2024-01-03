@@ -1,5 +1,5 @@
 import { PassThrough } from 'stream';
-import { createSendSlackMessageViaWebhookAction } from './send-slack-message';
+import { createSendSlackMessageViaWebhookAction } from './send-slack-message-via-webhook';
 import * as winston from 'winston';
 import { Config } from '@backstage/config';
 import axios from 'axios';
