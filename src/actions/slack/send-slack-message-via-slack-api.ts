@@ -83,7 +83,7 @@ export function createSendSlackMessageViaSlackApiAction(options: {
   });
 
   async function validateScopesAsync(client: WebClient) {
-    const response = await client.auth.test();
+    const response = await client.auth.test({});
     if (!response.ok) {
       throw new Error(
         "Something isn't right with the setup of the token used to authenticate with the Slack API. Please check the token and try again."
@@ -102,7 +102,7 @@ export function createSendSlackMessageViaSlackApiAction(options: {
       );
     }
 
-    const result = await client.auth.test();
+    const result = await client.auth.test({});
 
     if (!result.ok) {
       throw new InputError(
@@ -132,7 +132,7 @@ export function createSendSlackMessageViaSlackApiAction(options: {
     channelName: any
   ) {
     // search the Slack API for a conversation with a matching name, then return the id of that conversation
-    const convo = await client.conversations.list();
+    const convo = await client.conversations.list({});
 
     if (convo.channels === undefined || convo.channels === null) {
       throw new InputError(
