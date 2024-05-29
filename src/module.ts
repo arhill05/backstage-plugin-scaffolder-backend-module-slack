@@ -3,7 +3,10 @@ import {
   createBackendModule,
 } from "@backstage/backend-plugin-api";
 import { scaffolderActionsExtensionPoint } from "@backstage/plugin-scaffolder-node/alpha";
-import { createSendSlackMessageViaWebhookAction } from "./actions";
+import {
+  createSendSlackMessageViaWebhookAction,
+  createSendSlackMessageViaSlackApiAction,
+} from "./actions";
 
 export const scaffolderModuleSendSlackMessage = createBackendModule({
   pluginId: "scaffolder",
@@ -16,7 +19,8 @@ export const scaffolderModuleSendSlackMessage = createBackendModule({
       },
       async init({ scaffolder, config }) {
         scaffolder.addActions(
-          createSendSlackMessageViaWebhookAction({ config })
+          createSendSlackMessageViaWebhookAction({ config }),
+          createSendSlackMessageViaSlackApiAction({ config })
         );
       },
     });

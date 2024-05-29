@@ -34,6 +34,7 @@
     "@backstage/integration": "^1.11.0",
     "@backstage/plugin-scaffolder-backend": "^1.22.7",
     "@backstage/plugin-scaffolder-node": "^0.4.4",
+    "@slack/web-api": "^7.0.4",
     "axios": "^1.4.0"
   },
   "devDependencies": {
