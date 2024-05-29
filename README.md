@@ -21,38 +21,16 @@ yarn add --cwd packages/backend @mdude2314/backstage-plugin-scaffolder-backend-m
 Add the actions you'd like to the scaffolder:
 
 ```typescript
-// packages/backend/src/plugins/scaffolder.ts
+// packages/backend/src/index.ts
 
 import {
-  createSendSlackMessageViaWebhookAction
+  sendSlackMessageModule
 } from '@mdude2314/backstage-plugin-scaffolder-backend-module-slack'
-
-import { ScmIntegrations } from '@backstage/integration';
-import { createBuiltinActions, createRouter } from '@backstage/plugin-scaffolder-backend';
 
 ...
 
-const integrations = ScmIntegrations.fromConfig(env.config);
-const builtInActions = createBuiltinActions({
-  catalogClient,
-  integrations,
-  config: env.config,
-  reader: env.reader
-});
+backend.add(sendSlackMessageModule());
 
-const actions = [
-    createSendSlackMessageViaWebhookAction({config: env.config}),
-  ...builtInActions
-];
-
-return await createRouter({
-  logger: env.logger,
-  config: env.config,
-  database: env.database,
-  reader: env.reader,
-  catalogClient,
-  actions
-});
 ```
 
 Add a Slack configuration section to your app-config.yaml.
