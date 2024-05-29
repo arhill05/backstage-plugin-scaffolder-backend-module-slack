@@ -1,9 +1,10 @@
 import { PassThrough } from "stream";
 import * as winston from "winston";
-import { Config } from "@backstage/config";
+import { Config, JsonObject } from "@backstage/config";
 
 import { createSendSlackMessageViaSlackApiAction } from "./send-slack-message-via-slack-api";
 import { Constants } from "../../helpers/constants";
+import { ActionContext } from "@backstage/plugin-scaffolder-node";
 
 const mockAuthTest = jest.fn().mockResolvedValue({
   ok: true,
@@ -60,7 +61,7 @@ describe("slack:sendMessage:conversation", () => {
           message: "Hello, world!",
         },
         logger: mockLogger,
-      });
+      } as unknown as ActionContext<{ message: string; webhookUrl?: string | undefined; }, JsonObject>);
       throw new Error("This should not succeed");
     } catch (err: any) {
       // eslint-disable-next-line jest/no-conditional-expect
@@ -91,7 +92,7 @@ describe("slack:sendMessage:conversation", () => {
           message: "Hello, world!",
         },
         logger: mockLogger,
-      });
+      } as unknown as ActionContext<{ message: string; webhookUrl?: string | undefined; }, JsonObject>);
       throw new Error("This should not succeed");
     } catch (err: any) {
       // eslint-disable-next-line jest/no-conditional-expect
@@ -116,7 +117,7 @@ describe("slack:sendMessage:conversation", () => {
           message: "Hello, world!",
         },
         logger: mockLogger,
-      });
+      } as unknown as ActionContext<{ message: string; webhookUrl?: string | undefined; }, JsonObject>);
       throw new Error("This should not succeed");
     } catch (err: any) {
       // eslint-disable-next-line jest/no-conditional-expect
@@ -141,7 +142,7 @@ describe("slack:sendMessage:conversation", () => {
         conversationId: "test-conversation-id",
       },
       logger: mockLogger,
-    });
+    } as unknown as ActionContext<{ message: string; webhookUrl?: string | undefined; }, JsonObject>);
 
     const spy = jest.spyOn(mockImplementation.chat, "postMessage");
 
@@ -169,7 +170,7 @@ describe("slack:sendMessage:conversation", () => {
           conversationId: "test-conversation-id",
         },
         logger: mockLogger,
-      });
+      } as unknown as ActionContext<{ message: string; webhookUrl?: string | undefined; }, JsonObject>);
       throw new Error("This should not succeed");
     } catch (err: any) {
       // eslint-disable-next-line jest/no-conditional-expect
