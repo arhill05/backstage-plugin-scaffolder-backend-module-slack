@@ -33,7 +33,7 @@ Alternatively, there is an app manifest provided in the `slack-app-manifest.yaml
 In the root directory of your Backstage project:
 
 ```shell
-yarn add --cwd packages/backend @mdude2314/backstage-plugin-scaffolder-backend-module-slack
+yarn --cwd packages/backend add @mdude2314/backstage-plugin-scaffolder-backend-module-slack
 ```
 
 Add the actions you'd like to the scaffolder:
