@@ -67,7 +67,7 @@ slack:
   # don't intend to supply these from the action inputs
   token: ${SLACK_TOKEN}
   conversationId: ABC123 # The ID of the conversation to send messages to. Either this or the conversationName are required here if you don't intend to supply either from the action inputs
-  conversationName: general # The name of the conversation to send messages to. Either this or the conversationId are rqeuired here if you don't intend to supply either from the action inputs
+  conversationName: general # The name of the conversation to send messages to. Either this or the conversationId are required here if you don't intend to supply either from the action inputs
 ```
 
 ## Example of using the send message action in a template
